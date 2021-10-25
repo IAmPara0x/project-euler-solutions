@@ -27,7 +27,7 @@ fastProd val (x:xs) y
 
 convolve' istride xs = f (product istride) istride xs
   where
-    f val _ (x:[]) = [val*x]
+    f val _ [x] = [val*x]
     f val istride (x:xs) = nval : f nval nstride xs
       where
         (nval,nstride) = fastProd val istride x

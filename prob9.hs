@@ -9,7 +9,7 @@ n = 1000
 isPythagoreanTriplet :: Int -> Int -> Bool
 isPythagoreanTriplet a b = a*a + b*b == c*c
   where
-    c = (n - a - b)
+    c = n - a - b
 
 sol :: Int
 sol = prod $ head [(i,j)| i <- [1..500], j <- [i+1..500], isPythagoreanTriplet i j]

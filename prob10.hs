@@ -1,8 +1,13 @@
 module Main where
 
+-- Find the sum of all the primes below two million.
+
 -- Following paper: https://www.cs.hmc.edu/~oneill/papers/Sieve-JFP.pdf
+-- NOTE: Runtime 1.66s
 
 {-
+NOTE: This Implementation doesn't work.
+
 import Data.IntPSQ (IntPSQ, empty, alterMin, findMin, insert)
 
 type Table = IntPSQ Int [Int]

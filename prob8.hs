@@ -8,7 +8,7 @@ number = 73167176531330624919225119674426574742355349194934969835203127745063262
 digits = map (\x -> read [x] :: Int) $ show number
 
 convolve :: [a] -> [a] -> [[a]]
-convolve istride xs = scanl f istride xs
+convolve istride xs = map product $ scanl f istride xs
   where
     f (x:xs) a = xs ++ [a]
 
@@ -32,4 +32,4 @@ convolve' istride xs = f (product istride) istride xs
       where
         (nval,nstride) = fastProd val istride x
 
-sol2 = foldl max 0 $ convolve' (take n digits) (drop n digits)
+sol2 = maximum $ convolve' (take n digits) (drop n digits)

@@ -49,22 +49,22 @@ primes' = sieve [2..30]
 x = take 10 primes'
 -}
 
+import Data.IntMap (delete, empty, insert, insertWith, lookup)
 import Prelude hiding (lookup)
-import Data.IntMap (insert, empty, insertWith, lookup, delete)
 
-primes = sieve [2..]
+primes = sieve [2 ..]
 
 sieve xs = sieve' xs empty
   where
     sieve' [] table = []
-    sieve' (x:xs) table =
-      case  lookup x table of
-        Nothing    -> x : sieve' xs (insert (x*x) [x] table)
+    sieve' (x : xs) table =
+      case lookup x table of
+        Nothing -> x : sieve' xs (insert (x * x) [x] table)
         Just facts -> sieve' xs (foldl reinsert (delete x table) facts)
       where
-        reinsert table prime = insertWith (++) (x+prime) [prime] table
+        reinsert table prime = insertWith (++) (x + prime) [prime] table
 
-sol = sum $ takeWhile (<2000000) primes
+sol = sum $ takeWhile (< 2000000) primes
 
-main :: IO()
+main :: IO ()
 main = print sol

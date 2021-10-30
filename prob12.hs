@@ -1,5 +1,7 @@
 module Main where
 
+-- What is the value of the first triangle number to have over five hundred divisors?
+
 import Data.List (group)
 
 triangleNums :: [Int]

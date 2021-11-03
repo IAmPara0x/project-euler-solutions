@@ -1,5 +1,4 @@
 -- What is the largest prime factor of the number 600851475143 ?
--- NOTE: sexy solution.
 
 primeFactors :: Integer -> [Integer]
 primeFactors 1 = [1]

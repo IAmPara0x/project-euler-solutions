@@ -51,4 +51,4 @@ numToWord x
 main :: IO()
 main = print sol
   where
-    sol = sum $ map length $ concat $ map (words . numToWord) [1..1000]
+    sol = sum $ map length $ concat map (words . numToWord) [1..1000]
